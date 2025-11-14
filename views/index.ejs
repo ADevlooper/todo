@@ -35,11 +35,11 @@
     <table class="table table-bordered table-striped">
       <thead class="table-dark">
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Task</th>
-          <th scope="col">Description</th>
-          <th scope="col">Status</th>
-          <th scope="col">Actions</th>
+          <th>#</th>
+          <th>Task</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -49,6 +49,8 @@
               <td><%= index + 1 %></td>
               <td><%= todo.task %></td>
               <td><%= todo.task_desc %></td>
+
+              <!-- Toggle Status -->
               <td>
                 <form action="/update/<%= todo.id %>" method="POST" style="display:inline;">
                   <input type="hidden" name="status" value="<%= !todo.status %>">
@@ -60,6 +62,8 @@
                   </button>
                 </form>
               </td>
+
+              <!-- Delete Task -->
               <td>
                 <form action="/delete/<%= todo.id %>" method="POST" style="display:inline;">
                   <button 

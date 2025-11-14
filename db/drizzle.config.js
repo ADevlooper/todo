@@ -1,12 +1,15 @@
-import 'dotenv/config';
+import dotenv from "dotenv";
+import { defineConfig } from "drizzle-kit";
 
-/** @type { import("drizzle-kit").Config } */
-export default {
+
+dotenv.config({ path: "../.env" });
+
+export default defineConfig({
+  dialect: "postgresql",
   schema: "./schema.js",
   out: "./drizzle",
-  dialect: "postgresql",
+
   dbCredentials: {
-    url: process.env.SUPABASE_DB_URL,
+    url: process.env.DATABASE_URL,
   },
-  extensions: ["js"],
-};
+});
